@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+tempCodeRunnerFile.py
+
+# Sentence-transformer cache
+.cache/
+
+# User-specific data
+memory.json
+memory_clean.json
