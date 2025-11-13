@@ -3,7 +3,17 @@ import sys, time, json, os
 from datetime import datetime
 
 # --- API setup ---
-a4f_api_key = "ddc-a4f-a913b79c26a84419a0181ce07971547c"
+try:
+    with open("config.json", "r") as f:
+        config = json.load(f)
+        a4f_api_key = config["API_KEY"]
+except FileNotFoundError:
+    print("❌ Error: config.json not found. Please create it from config.example.json and add your API key.")
+    sys.exit()
+except KeyError:
+    print("❌ Error: 'API_KEY' not found in config.json. Please make sure it is set correctly.")
+    sys.exit()
+
 a4f_base_url = "https://api.a4f.co/v1"
 
 client = OpenAI(
